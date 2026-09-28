@@ -13,17 +13,23 @@ export default async function VenueDetailPage({ params }: { params: Promise<{ vi
   if (!selectedVenue) notFound()
 
   return(
-    <main className="text-center p-5 bg-stone-100 text-emerald-950">
-      <h1 className="text-lg font-medium">Venue ID {vid}!</h1>
-      <div className="flex flex-row my-5">
-        <Image 
-        src={selectedVenue.image}
-        alt={selectedVenue.name}
-        width={1200}
-        height={800}
-        sizes="(max-width: 768px) 90vw, 30vw"
-        className="h-auto w-[30%] rounded-lg"/>
-        <div className="text-md mx-5">{selectedVenue.name}</div>
+    <main className="min-h-[calc(100vh-50px)] bg-stone-100 px-5 py-10 text-emerald-950 sm:px-8 sm:py-14">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-row overflow-hidden rounded-lg border border-emerald-950/10 bg-white shadow-md md:flex-row">
+          <Image
+            src={selectedVenue.image}
+            alt={selectedVenue.name}
+            width={0}
+            height={0}
+            sizes="100vw, 68vw"
+            className=" w-1/3 object-cover"
+          />
+          <section className="flex flex-1 flex-start border-t-4 border-emerald-800 p-7 sm:p-10 md:border-l-4 md:border-t-0">
+            <h3 className="mt-3 font-semibold leading-tight sm:text-4xl">
+              {selectedVenue.name}
+            </h3>
+          </section>
+        </div>
       </div>
     </main>
   )
